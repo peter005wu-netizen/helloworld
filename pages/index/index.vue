@@ -139,9 +139,9 @@ export default {
 				sourceType: ['camera'], // 只使用相机
 				success: (res) => {
 					const imagePath = res.tempFilePaths[0];
-					// 跳转到相机预览页面并传递图片路径
+					// 拍照后直接跳转到词汇识别页面
 					uni.navigateTo({
-						url: `/pages/scan/CameraPreview?image=${encodeURIComponent(imagePath)}`
+						url: `/pages/scan/RecognitionPage?image=${encodeURIComponent(imagePath)}`
 					});
 				},
 				fail: (err) => {

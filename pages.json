@@ -35,13 +35,6 @@
 			}
 		},
 		{
-			"path": "pages/scan/CameraPreview",
-			"style": {
-				"navigationBarTitleText": "",
-				"navigationBarBackgroundColor": "#F8F9FA"
-			}
-		},
-		{
 			"path": "pages/scan/RecognitionPage",
 			"style": {
 				"navigationBarTitleText": "",
