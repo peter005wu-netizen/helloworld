@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(copy:*)",
-      "Bash(copy logo.png tab-settings.png)"
+      "Bash(copy logo.png tab-settings.png)",
+      "Bash(npm install:*)",
+      "Bash(git rm:*)"
     ]
   }
 }

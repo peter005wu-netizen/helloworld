@@ -23,7 +23,7 @@
 				<text class="card-title">Scan & Upload</text>
 				<text class="card-subtitle">Convert learning materials to smart sets</text>
 				<view class="scan-options">
-					<view class="scan-option">
+					<view class="scan-option" @tap="handleCameraScan">
 						<view class="option-icon camera-icon">
 							<text class="icon">📷</text>
 						</view>
@@ -131,7 +131,29 @@ export default {
 		return {}
 	},
 	onLoad() {},
-	methods: {}
+	methods: {
+		handleCameraScan() {
+			// 使用相机拍照
+			uni.chooseImage({
+				count: 1,
+				sourceType: ['camera'], // 只使用相机
+				success: (res) => {
+					const imagePath = res.tempFilePaths[0];
+					// 跳转到相机预览页面并传递图片路径
+					uni.navigateTo({
+						url: `/pages/scan/CameraPreview?image=${encodeURIComponent(imagePath)}`
+					});
+				},
+				fail: (err) => {
+					uni.showToast({
+						title: '拍照失败',
+						icon: 'none'
+					});
+					console.error('Camera error:', err);
+				}
+			});
+		}
+	}
 }
 </script>
 

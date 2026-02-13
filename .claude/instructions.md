@@ -3,7 +3,6 @@
 
 # 平台约束：代码必须遵循 Uni-app 规范，严禁使用 window、document 等浏览器特有对象。所有平台差异必须使用条件编译（如 #ifdef MP-WEIXIN）。
 
-# 组件库规范：优先使用 uView UI 2.x 组件，严禁在已有 uView 对应组件时手动编写复杂 CSS 布局。
 
 # 生命周期：区分 Vue 生命周期（onMounted）与页面生命周期（onLoad, onShow），涉及数据请求时优先使用 onLoad。
 
@@ -26,16 +25,6 @@ Rule 示例：
 
 解构陷阱：严禁直接对 props 或 reactive 对象进行解构，必须使用 toRefs 保持响应式。
 
-3. uView UI 2.x (兼容 Vue 3) 使用规则
-目标：针对在Vue 3中使用uView 2.x的语法习惯。
-
-Rule 示例：
-
-v-model 绑定：uView 2.x 组件支持 v-model。在自定义组件时，务必遵循 Vue 3 的 update:modelValue 规范。
-
-样式穿透：修改 uView 内置组件样式时，由于小程序开启了 styleIsolation: 'apply-shared'，必须使用 :deep() 伪类。
-
-校验逻辑：使用 u-form 时，rules 定义应放在 onMounted 中，并通过 uForm.value.setRules(rules) 手动设置，以确保响应式校验生效。
 
 4. 目录结构与分层 (Skill 建议)
 
@@ -47,7 +36,7 @@ v-model 绑定：uView 2.x 组件支持 v-model。在自定义组件时，务必
 5. 性能与打包规则 (微信小程序专供)
 Rule 示例：
 
-静态资源：图片组件 u-image 必须开启 lazy-load。
+静态资源： 必须开启 lazy-load。
 
 分包加载：新功能模块必须建议建立分包 subPackages。
 
