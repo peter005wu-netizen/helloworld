@@ -5,6 +5,11 @@
 				isLogining: false
 			}
 		},
+		// 全局变量，可以通过 getApp().globalData 访问
+		globalData: {
+			openid: '',
+			userInfo: null
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 			this.login()

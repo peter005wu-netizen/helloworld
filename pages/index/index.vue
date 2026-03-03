@@ -6,7 +6,7 @@
 				<view class="user-info">
 					<image class="avatar" src="/static/avatar.png" mode="aspectFill"></image>
 					<view class="user-text">
-						<text class="user-name">Alex Rivera</text>
+						<text class="user-name">{{ userName }}</text>
 						<text class="user-level">ACADEMIC LEVEL: SENIOR</text>
 					</view>
 				</view>
@@ -128,9 +128,22 @@
 <script>
 export default {
 	data() {
-		return {}
+		return {
+			userName: '未登录'
+		}
 	},
-	onLoad() {},
+	onLoad() {
+		// 尝试从缓存读取昵称或全局数据
+		const info = uni.getStorageSync('userInfo');
+		if (info && info.nickName) {
+			this.userName = info.nickName;
+		} else {
+			const app = getApp();
+			if (app && app.globalData && app.globalData.userInfo) {
+				this.userName = app.globalData.userInfo.nickName || this.userName;
+			}
+		}
+	},
 	methods: {
 		handleCameraScan() {
 			// 使用相机拍照
